@@ -1,0 +1,46 @@
+Moinmoin,
+
+ich habe mich endlich mal aufgerafft und eine halbwegs lauffähige
+Version des ResultRecyclers bei Github hochgeladen.
+
+https://github.com/seppwerk/resultrecycler
+
+Ich wollte eigentlich auch noch die Dokumentation fertig machen, ein
+Pip-Paket erstellen und den dev-Bereich zum Entwickeln eigener
+Approaches schick machen, aber eh gar keiner mehr am Lehrstuhl ist, der
+mich noch kennt, dachte ich, ich mach das mal öffentlich.
+
+Für Fragen stehe ich jederzeit zur Verfügung, die Adresse dürft ihr sehr
+gerne weiter verteilen und ich hoffe, die Dokumentation noch etwas
+weiter zu machen.
+
+Eine Mini-Demo ist schon dabei. Ansonsten kann wie schon in den alten
+Versionen eine Metrik und eine Approach-Klasse nach Wahl übergeben
+werden. Neu sind die Limits, die Idee ist da, dass man so was wie μ±3σ
+gleich mal als Ergebnisraum angeben kann um das nicht später noch machen
+zu müssen.
+
+Ansonsten ist alles auf Python3 umgestellt, wenngleich ein paar Sachen
+auch noch mal aufpoliert werden könnten.
+
+Für das Füttern mit Daten ist die SampleData-Klasse da, da kommen zuerst
+die unabhängigen Variablen, dann die Abhängigen, dann die Jacobi-Matrix,
+dann die Hesse-Matrix rein (letzten beiden optional). Habe recht viel
+daran rumgefrickelt, dass da verschiedenste Daten-Typen reinkommen
+können. Zum Beispiel könnten die unabhängigen als Dict-vorliegen, die
+abhängigen als Array.
+
+Dann kann man auch SampleData({'a': 2, 'b': 4}, [30, 40], [{'a': 10,
+'b':20}, {'a':-5, 'b':-3}]) angeben. Da ist dann f(2,4)=30 und
+g(2,4)=40. Bei den Ableitungen wird das dann als f'(2,4)=(10,20) und
+g'(2,4)=(-5, -3) interpretiert. Viele Beispiele dazu in sind in
+test_jacobian_converter.py. Es ist auch alles ganz gut mit Tests
+abgedeckt, was natürlich nicht heißt, dass alles auch korrekt
+funktioniert... (;
+
+Viel Spaß, viele Grüße, ein entspanntes Weihnachtsfest, eine guten
+Rutsch und hoffentlich bis bald mal wieder...
+
+Sepp (:
+
+P.S. Bei Verwendung für Publikationen gerne meine Diss zitieren. (;
